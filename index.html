@@ -1,147 +1,260 @@
-/* Variables Compiled */
-/* Colors: Black #111, Dark Gray #333, Anti-Ronald Red #E74C3C */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Ronald Coalition | ARC</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        /* Compiled CSS */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            font-family: 'Raleway', sans-serif;
+        }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #1a1a1a; /* Darker background for the society vibe */
-  font-family: 'Raleway', sans-serif;
-}
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+        .icon {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: block;
+            fill: rgba(51, 51, 51, 0.4);
+            margin-right: 20px;
+            transition: all .2s ease-out;
+        }
 
-.icon {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  display: block;
-  fill: rgba(255, 255, 255, 0.4);
-  margin-right: 20px;
-  transition: all .2s ease-out;
-}
+        .icon.active {
+            fill: #E74C3C;
+        }
 
-.icon.active {
-  fill: #E74C3C;
-}
+        .icon.big {
+            width: 64px;
+            height: 64px;
+            fill: #E74C3C;
+            margin-bottom: 20px;
+        }
 
-.icon.big {
-  width: 64px;
-  height: 64px;
-  fill: #E74C3C;
-  margin-bottom: 20px;
-}
+        #wrapper {
+            width: 900px;
+            height: 400px;
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            margin: auto;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            overflow: hidden;
+            border-radius: 8px;
+        }
 
-#wrapper {
-  width: 900px;
-  height: 400px;
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  margin: auto;
-  background-color: #ffffff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  overflow: hidden;
-  border-radius: 8px;
-}
+        #left-side {
+            height: 70%;
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
 
-#left-side {
-  height: 70%;
-  width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        #left-side ul li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            line-height: 34px;
+            color: rgba(51, 51, 51, 0.5);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-#left-side ul li {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: flex;
-  line-height: 34px;
-  color: rgba(51, 51, 51, 0.5);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .2s ease-out;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        #left-side ul li:hover, #left-side ul li.active {
+            color: #333;
+        }
 
-#left-side ul li:hover {
-  color: #333;
-}
+        #left-side ul li:hover .icon, #left-side ul li.active .icon {
+            fill: #E74C3C;
+        }
 
-#left-side ul li:hover > .icon {
-  fill: #333;
-}
+        #border {
+            height: 288px;
+            width: 1px;
+            background-color: rgba(51, 51, 51, 0.1);
+            position: relative;
+        }
 
-#left-side ul li.active {
-  color: #333;
-}
+        #line {
+            position: absolute;
+            width: 5px;
+            height: 54px;
+            background-color: #E74C3C;
+            left: -2px;
+            transition: all .4s ease-in-out;
+        }
 
-#left-side ul li.active:hover > .icon {
-  fill: #E74C3C;
-}
+        /* Marker Positions */
+        .pos-1 { top: 35px; }
+        .pos-2 { top: 89px; }
+        .pos-3 { top: 143px; }
+        .pos-4 { top: 197px; }
 
-#border {
-  height: 288px;
-  width: 1px;
-  background-color: rgba(51, 51, 51, 0.1);
-}
+        #right-side {
+            height: 300px;
+            width: 75%;
+            overflow: hidden;
+            position: relative;
+        }
 
-#border #line {
-  width: 5px;
-  height: 54px;
-  background-color: #E74C3C;
-  margin-left: -2px;
-  transition: all .4s ease-in-out;
-}
+        .content-section {
+            position: absolute;
+            height: 300px;
+            width: 100%;
+            transition: all .6s ease-in-out;
+            top: 350px; /* Start below */
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            visibility: hidden;
+        }
 
-#border #line.one { margin-top: 35px; }
-#border #line.two { margin-top: 89px; }
-#border #line.three { margin-top: 143px; }
-#border #line.four { margin-top: 197px; }
+        #right-side h1 {
+            font-weight: 800;
+            color: #333;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
 
-#right-side {
-  height: 300px;
-  width: 75%;
-  overflow: hidden;
-  position: relative;
-}
+        #right-side p {
+            color: #666;
+            font-weight: 500;
+            padding: 0 50px;
+            line-height: 1.6;
+        }
 
-#right-side > div {
-  position: absolute;
-  height: 300px;
-  width: 100%;
-  transition: all .6s ease-in-out;
-  margin-top: -350px;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
+        .content-section.active {
+            top: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
 
-#right-side h1 {
-  font-weight: 800;
-  color: #333;
-  margin: 10px 0;
-  text-transform: uppercase;
-}
+<!-- SVG SOURCE -->
+<svg id="svg-source" height="0" version="1.1" xmlns="http://www.w3.org" style="position: absolute">
+  <g id="target-icon">
+    <path d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M16,30C8.269,30,2,23.731,2,16S8.269,2,16,2s14,6.269,14,14S23.731,30,16,30z M16,8c-4.418,0-8,3.582-8,8s3.582,8,8,8s8-3.582,8-8S20.418,8,16,8z"></path>
+  </g>
+  <g id="protest-icon">
+    <path d="M28,4H4C2.895,4,2,4.895,2,6v20c0,1.105,0.895,2,2,2h24c1.105,0,2-0.895,2-2V6C30,4.895,29.105,4,28,4z M28,26H4V6h24V26z M8,10h16v2H8V10z M8,14h16v2H8V14z M8,18h10v2H8V18z"></path>
+  </g>
+  <g id="erase-icon">
+    <path d="M16,2L2,16l14,14l14-14L16,2z M16,26.172L5.828,16L16,5.828L26.172,16L16,26.172z"></path>
+  </g>
+  <g id="banish-icon">
+    <path d="M16,2L0,30h32L16,2z M16,8l10,18H6L16,8z M15,14h2v6h-2V14z M15,22h2v2h-2V22z"></path>
+  </g>
+</svg>
 
-#right-side p {
-  color: #666;
-  font-weight: 500;
-  padding: 0 50px;
-  line-height: 1.6;
-}
+<div id="wrapper">
+  <div id="left-side">
+    <ul id="nav-list">
+      <li class="active" data-target="first" data-pos="pos-1">
+        <div class="icon active"><svg viewBox="0 0 32 32"><use xlink:href="#target-icon"></use></svg></div>
+        Identify
+      </li>
+      <li data-target="second" data-pos="pos-2">
+        <div class="icon"><svg viewBox="0 0 32 32"><use xlink:href="#protest-icon"></use></svg></div>
+        Protest
+      </li>
+      <li data-target="third" data-pos="pos-3">
+        <div class="icon"><svg viewBox="0 0 32 32"><use xlink:href="#erase-icon"></use></svg></div>
+        Erase
+      </li>
+      <li data-target="fourth" data-pos="pos-4">
+        <div class="icon"><svg viewBox="0 0 32 32"><use xlink:href="#banish-icon"></use></svg></div>
+        Banish
+      </li>
+    </ul>
+  </div>
+
+  <div id="border">
+    <div id="line" class="pos-1"></div>
+  </div>
+
+  <div id="right-side">
+    <div id="first" class="content-section active">
+      <div class="icon big"><svg viewBox="0 0 32 32"><use xlink:href="#target-icon"></use></svg></div>
+      <h1>Spot the Red Shoes</h1>
+      <p>The first step in the Anti-Ronald Coalition (ARC) is surveillance. Locate the painted smile and the yellow jumpsuit. We track his movements to ensure no burger goes un-scrutinized.</p>
+    </div>
+
+    <div id="second" class="content-section">
+      <div class="icon big"><svg viewBox="0 0 32 32"><use xlink:href="#protest-icon"></use></svg></div>
+      <h1>Demand Better Toys</h1>
+      <p>The propaganda stops here. We organize peaceful sit-ins against the plastic trinkets and the terrifying giant-shoe industrial complex. No more nightmares under the Golden Arches.</p>
+    </div>
+
+    <div id="third" class="content-section">
+      <div class="icon big"><svg viewBox="0 0 32 32"><use xlink:href="#erase-icon"></use></svg></div>
+      <h1>Wipe the Grease</h1>
+      <p>We work tirelessly to scrub the "Happy" from the Meal. Our mission is to replace the clown's face with literally anything else—perhaps a nice rock or a very stern vegetable.</p>
+    </div>
+
+    <div id="fourth" class="content-section">
+      <div class="icon big"><svg viewBox="0 0 32 32"><use xlink:href="#banish-icon"></use></svg></div>
+      <h1>The Final Banishment</h1>
+      <p>Once the red wig is retired, our job is done. We ship the legacy of the clown to the annals of history, ensuring a future free from processed cheese and oversized gloves.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+    const navItems = document.querySelectorAll('#nav-list li');
+    const sections = document.querySelectorAll('.content-section');
+    const marker = document.getElementById('line');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove active classes
+            navItems.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.icon').classList.remove('active');
+            });
+            sections.forEach(s => s.classList.remove('active'));
+
+            // Add active classes to clicked
+            item.classList.add('active');
+            item.querySelector('.icon').classList.add('active');
+            
+            const targetId = item.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+
+            // Move the red line marker
+            marker.className = '';
+            marker.classList.add(item.getAttribute('data-pos'));
+        });
+    });
+</script>
+
+</body>
+</html>
+
 
 #right-side div.active {
   margin-top: 0px;
