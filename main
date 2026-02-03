@@ -1,0 +1,149 @@
+/* Variables Compiled */
+/* Colors: Black #111, Dark Gray #333, Anti-Ronald Red #E74C3C */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a; /* Darker background for the society vibe */
+  font-family: 'Raleway', sans-serif;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: block;
+  fill: rgba(255, 255, 255, 0.4);
+  margin-right: 20px;
+  transition: all .2s ease-out;
+}
+
+.icon.active {
+  fill: #E74C3C;
+}
+
+.icon.big {
+  width: 64px;
+  height: 64px;
+  fill: #E74C3C;
+  margin-bottom: 20px;
+}
+
+#wrapper {
+  width: 900px;
+  height: 400px;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#left-side {
+  height: 70%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#left-side ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  line-height: 34px;
+  color: rgba(51, 51, 51, 0.5);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#left-side ul li:hover {
+  color: #333;
+}
+
+#left-side ul li:hover > .icon {
+  fill: #333;
+}
+
+#left-side ul li.active {
+  color: #333;
+}
+
+#left-side ul li.active:hover > .icon {
+  fill: #E74C3C;
+}
+
+#border {
+  height: 288px;
+  width: 1px;
+  background-color: rgba(51, 51, 51, 0.1);
+}
+
+#border #line {
+  width: 5px;
+  height: 54px;
+  background-color: #E74C3C;
+  margin-left: -2px;
+  transition: all .4s ease-in-out;
+}
+
+#border #line.one { margin-top: 35px; }
+#border #line.two { margin-top: 89px; }
+#border #line.three { margin-top: 143px; }
+#border #line.four { margin-top: 197px; }
+
+#right-side {
+  height: 300px;
+  width: 75%;
+  overflow: hidden;
+  position: relative;
+}
+
+#right-side > div {
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  transition: all .6s ease-in-out;
+  margin-top: -350px;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#right-side h1 {
+  font-weight: 800;
+  color: #333;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+#right-side p {
+  color: #666;
+  font-weight: 500;
+  padding: 0 50px;
+  line-height: 1.6;
+}
+
+#right-side div.active {
+  margin-top: 0px;
+  opacity: 1;
+}
